@@ -1,0 +1,11 @@
+---
+snap_classic_packages:
+  - git-machete
+
+apt_packages:
+  - software-properties-common
+  - build-essential
+  - direnv
+  - git
+  - jq
+  - neovim

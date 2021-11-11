@@ -1,0 +1,6 @@
+---
+dotfiles:
+  - .alias
+  - .bash_profile
+  - .bashrc
+  - .tmux.conf

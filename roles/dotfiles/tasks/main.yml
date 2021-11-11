@@ -1,0 +1,9 @@
+---
+- name: Setup {{ item }}
+  blockinfile:
+    path: "~/{{ item }}"
+    block: "{{ lookup('file', 'files/{{ item }}') }}"
+    create: yes
+    state: present
+    backup: "{{ create_backups }}"
+  with_items: "{{ dotfiles }}"

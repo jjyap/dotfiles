@@ -1,0 +1,15 @@
+---
+- name: Install apt packages
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  apt:
+    name: "{{ apt_packages }}"
+    state: present
+    update_cache: yes
+  become: true
+
+- name: Install snap classic packages
+  snap:
+    name: "{{ snap_classic_packages }}"
+    classic: yes
+    state: present
