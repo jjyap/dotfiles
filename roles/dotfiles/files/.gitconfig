@@ -2,6 +2,6 @@
 	name = jjyap
 	email = jordanjyap@gmail.com
 [alias]
-    llog = loggraph —-pretty=oneline —-abbrev-commit —-decorate —-all
+    llog = log --graph --pretty=oneline --abbrev-commit --decorate --all
 [core]
     editor = nvim
