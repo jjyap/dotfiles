@@ -6,8 +6,11 @@
     # Ansible has 2 special tags, "always" and "never"
     # Ansible will ignore all roles with the tag "never" unless explicitly included
     # https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html
-    # - {role: dotfiles, tags: [dotfiles]}
+    # - {role: dotfiles, tags: [always, dotfiles]}
+    # - {role: packages, tags: [always], become: yes}
+    - {role: vim, tags: [always]}
+
+
     # - {role: ssh, tags: [ssh]}
-    - {role: packages, tags: [always], become: true}
     # - {role: git, tags: [never, git]}
     # - {role: bins, tags: [never, bins]}

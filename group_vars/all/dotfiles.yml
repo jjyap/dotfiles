@@ -1,6 +1,9 @@
 ---
-dotfiles:
+block_dotfiles:
   - .alias
   - .bash_profile
   - .bashrc
   - .tmux.conf
+
+symlink_dotfiles:
+  - .gitconfig

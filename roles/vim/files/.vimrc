@@ -1,3 +1,8 @@
+" Use existing vim config
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+" source ~/.vimrc
+
 " Plugins
 call plug#begin()
 Plug 'hashivim/vim-terraform'
@@ -6,16 +11,18 @@ Plug 'yorinasub17/vim-terragrunt'
 Plug 'preservim/nerdtree'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
 
-Plug 'crusoexia/vim-monokai'
+" Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 " Treesitter
 :lua <<EOF
 require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained",
   highlight = {
-	enable = true,              
+	  enable = true,              
   },
 }
 EOF

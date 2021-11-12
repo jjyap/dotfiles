@@ -1,9 +1,18 @@
 ---
-- name: Setup {{ item }}
+# Setup dotfiles
+- name: Setup blockinfile {{ item }}
   blockinfile:
     path: "~/{{ item }}"
     block: "{{ lookup('file', 'files/{{ item }}') }}"
     create: yes
     state: present
     backup: "{{ create_backups }}"
-  with_items: "{{ dotfiles }}"
+  with_items: "{{ block_dotfiles }}"
+
+- name: Setup symlink {{ item }}
+  file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/{{ item }}"
+    dest: "~/{{ item }}"
+    state: link
+    force: yes
+  with_items: "{{ symlink_dotfiles }}"

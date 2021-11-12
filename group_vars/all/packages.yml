@@ -1,6 +1,7 @@
 ---
 snap_classic_packages:
   - git-machete
+  - nvim
 
 apt_packages:
   - software-properties-common
@@ -8,4 +9,3 @@ apt_packages:
   - direnv
   - git
   - jq
-  - neovim

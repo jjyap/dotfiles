@@ -1,0 +1,43 @@
+---
+# Setup Neovim
+- name: Symlink .vimrc
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.vimrc"
+    dest: "~/.vimrc"
+    state: link
+    force: yes
+
+- name: Symlink .vim/autoload directory
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.vim/autoload"
+    dest: "~/.vim/autoload"
+    state: link
+    force: yes
+
+- name: Symlink .vim/colors directory
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.vim/colors"
+    dest: "~/.vim/colors"
+    state: link
+    force: yes
+
+- name: Setup Neovim config dir
+  file:
+      path: ~/.config/nvim
+      state: directory
+      recurse: yes
+
+- name: Symlink .vimrc file to neovim init.vim
+  file:
+      src: ~/.vimrc
+      dest: ~/.config/nvim/init.vim
+      state: link
+
+- name: Install vim-plug
+  get_url:
+      url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      dest: ~/.vim/autoload/plug.vim
+      force: yes
+
+- name: Install Plugins
+  shell: TERM=dumb nvim +PlugInstall +qall
