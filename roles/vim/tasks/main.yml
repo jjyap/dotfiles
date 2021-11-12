@@ -7,6 +7,13 @@
     state: link
     force: yes
 
+- name: Create .vim directory
+  file:
+      path: ~/.vim
+      state: directory
+      recurse: yes
+
+
 - name: Symlink .vim/autoload directory
   file:
     src: "{{ playbook_dir }}/roles/vim/files/.vim/autoload"
