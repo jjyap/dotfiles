@@ -13,3 +13,9 @@
     name: "{{ apt_packages }}"
     state: present
     update_cache: yes
+
+- name: Install git-machete auto completion
+  get_url:
+    url: https://raw.githubusercontent.com/VirtusLab/git-machete/master/completion/git-machete.completion.bash
+    dest: /etc/bash_completion.d/git-machete 
+  become: yes
