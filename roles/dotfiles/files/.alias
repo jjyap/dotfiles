@@ -1,6 +1,6 @@
 # git-machete
 alias gm='git machete'
-alias gmt='git machete traverse --fetch --start-from=first-root'
+alias gmt='git machete traverse --fetch --start_from=root'
 
 # git
 alias g='git'
