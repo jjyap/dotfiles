@@ -175,13 +175,13 @@ call s:h("Boolean",       { "fg": s:purple })
 call s:h("Character",     { "fg": s:yellow })
 call s:h("String",        { "fg": s:yellow })
 
-call s:h("Type",          { "fg": s:aqua })
+call s:h("Type",          { "fg": s:green })
 call s:h("Structure",     { "fg": s:aqua })
 call s:h("StorageClass",  { "fg": s:aqua })
 call s:h("Typedef",       { "fg": s:aqua })
     
 call s:h("Identifier",    { "fg": s:green })
-call s:h("Function",      { "fg": s:green })
+call s:h("Function",      { "fg": s:aqua })
                          
 call s:h("Statement",     { "fg": s:pink })
 call s:h("Operator",      { "fg": s:pink })
@@ -189,7 +189,7 @@ call s:h("Label",         { "fg": s:pink })
 call s:h("Keyword",       { "fg": s:pink })
 "        Conditional"
 "        Repeat"
-"        Exception"
+call s:h("Exception",     { "fg": s:aqua, "format": "italic" })
 
 call s:h("PreProc",       { "fg": s:green })
 call s:h("Include",       { "fg": s:pink })
@@ -197,9 +197,9 @@ call s:h("Define",        { "fg": s:pink })
 call s:h("Macro",         { "fg": s:green })
 call s:h("PreCondit",     { "fg": s:green })
                            
-call s:h("Special",       { "fg": s:purple })
+call s:h("Special",       { "fg": s:orange })
 call s:h("SpecialChar",   { "fg": s:pink })
-call s:h("Delimiter",     { "fg": s:pink })
+call s:h("Delimiter",     { "fg": s:white })
 call s:h("SpecialComment",{ "fg": s:aqua })
 call s:h("Tag",           { "fg": s:pink })
 "        Debug"
@@ -210,6 +210,8 @@ call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
 call s:h("Error",         { "fg": s:red, "bg": s:darkred })
+" call s:h("MatchParen",    { "fg": s:white })
+
 
 " NerdTree
 " --------
