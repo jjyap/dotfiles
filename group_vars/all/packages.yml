@@ -1,11 +1,13 @@
 ---
-snap_classic_packages:
-  - git-machete
-  - nvim
+apt_repositories:
+  - ppa:virtuslab/git-machete
+  - ppa:neovim-ppa/stable
 
 apt_packages:
   - software-properties-common
   - build-essential
   - direnv
   - git
+  - python3-git-machete
   - jq
+  - neovim
