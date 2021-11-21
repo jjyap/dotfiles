@@ -24,3 +24,6 @@ alias gfp='git fetch --all --prune'
 # push
 alias gp='git push'
 
+
+# Bash
+alias h='history | grep'
