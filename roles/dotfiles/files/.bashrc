@@ -2,9 +2,9 @@
 HISTSIZE=3000
 HISTFILESIZE=3000
 
-# don't put duplicate lines or lines starting with space in the history.
+# don't put duplicates lines in bash history 
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignoredups:erasedups
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -12,6 +12,9 @@ shopt -s histverify
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+# Save history after every command
+PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
 
 # for Brew
 export PATH="/usr/local/bin:$PATH"
