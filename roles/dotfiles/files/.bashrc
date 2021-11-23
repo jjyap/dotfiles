@@ -2,6 +2,15 @@
 HISTSIZE=3000
 HISTFILESIZE=3000
 
+# for Brew
+export PATH="/usr/local/bin:$PATH"
+# For user bins
+export PATH="$HOME/.local/bin:$PATH"
+
+if grep -q WSL /proc/version; then
+    export PATH="/mnt/c/Windows/System32:$PATH"
+fi
+
 # don't put duplicates lines in bash history 
 # See bash(1) for more options
 HISTCONTROL=ignoredups:erasedups
@@ -15,11 +24,6 @@ shopt -s checkwinsize
 
 # Save history after every command
 PROMPT_COMMAND="history -n; history -w; history -c; history -r; $PROMPT_COMMAND"
-
-# for Brew
-export PATH="/usr/local/bin:$PATH"
-# For user bins
-export PATH="$HOME/.local/bin:$PATH"
 
 # Hides the default login message
 export BASH_SILENCE_DEPRECATION_WARNING=1
