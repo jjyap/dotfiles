@@ -13,19 +13,22 @@ Plug 'preservim/nerdtree'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
-
+Plug 'phaazon/hop.nvim'
 " Plug 'crusoexia/vim-monokai'
 call plug#end()
 
 " Treesitter
 :lua <<EOF
+require 'nvim-treesitter.highlight'
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  ensure_installed = "all",
+  additional_vim_regex_highlighting = false,
   highlight = {
-	  enable = true,              
-  },
+	  enable = true
+  }
 }
 EOF
+
 " require "nvim-treesitter.highlight"
 " vim.treesitter.highlighter.hl_map.error = nil
 
@@ -36,12 +39,33 @@ EOF
 "let g:sonokai_disable_italic_comment = 1
 "colorscheme sonokai
 
+let g:monokai_gui_italic = 1
+let g:monokai_term_italic = 1
+syntax on		" filetype detection by synxtax
 colorscheme monokai
 " colorscheme monokai_pro
 " colorscheme monokai_soda
+" checks if your terminal has 24-bit color support
+if (has("termguicolors"))
+    set termguicolors
+    hi LineNr ctermbg=NONE guibg=NONE
+endif
+
+" Hop
+:lua <<EOF
+require'hop'.setup {
+  keys = 'etovxqpdygfblzhckisuran',
+}
+vim.api.nvim_set_keymap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+vim.api.nvim_set_keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+vim.api.nvim_set_keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+
+vim.api.nvim_set_keymap('', 's', "<cmd>lua require'hop'.hint_char1({ hint_offset = 0 })<cr>", {})
+vim.api.nvim_set_keymap('', 'w', "<cmd>lua require'hop'.hint_words({ hint_offset = 0 })<cr>", {})
+EOF
 
 " Basic Options
-syntax on		" filetype detection by synxtax
 
 " Search settings
 set hlsearch
