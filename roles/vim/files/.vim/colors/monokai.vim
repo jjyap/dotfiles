@@ -189,7 +189,11 @@ call s:h("Label",         { "fg": s:pink })
 call s:h("Keyword",       { "fg": s:pink })
 "        Conditional"
 "        Repeat"
-call s:h("Exception",     { "fg": s:aqua, "format": "italic" })
+call s:h("TSException",   { "fg": s:white, "format": "italic" })
+call s:h("Exception",   { "fg": s:white, "format": "italic" })
+" highlight TSKeywordOperator guifg=#FF00FF
+" hi TSException guifg=#810000 ctermfg=109 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+" highlight TSException guifg=#FF00FF
 
 call s:h("PreProc",       { "fg": s:green })
 call s:h("Include",       { "fg": s:pink })
@@ -205,7 +209,7 @@ call s:h("Tag",           { "fg": s:pink })
 "        Debug"
 
 call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
-call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
+call s:h("Comment",       { "fg": s:warmgrey })
                          
 call s:h("Underlined",    { "fg": s:green })
 call s:h("Ignore",        {})
