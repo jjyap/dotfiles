@@ -3,7 +3,6 @@
   apt_repository:
     repo: "{{ item }}"
   with_items: "{{ apt_repositories }}"
-  when: ansible_distribution == 'MacOSX'
   become: true
 
 - name: Apt update
