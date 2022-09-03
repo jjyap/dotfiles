@@ -7,7 +7,7 @@ export PATH="/usr/local/bin:$PATH"
 # For user bins
 export PATH="$HOME/.local/bin:$PATH"
 
-if grep -q WSL /proc/version; then
+if grep -s -q WSL /proc/version; then
     export PATH="/mnt/c/Windows/System32:$PATH"
 fi
 
@@ -49,10 +49,8 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-
 if [ -f ~/.alias ]; then
     . ~/.alias
 fi
 
 eval "$(direnv hook bash)"
-
