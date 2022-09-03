@@ -29,3 +29,11 @@ And if everything looks good execute the playbook using:
 ```
 ansible-playbook bootstrap_dotfiles.yml -K
 ```
+
+
+## Changes
+---
+vim:
+- `inoremap jk <ESC>`
+
+

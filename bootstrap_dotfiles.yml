@@ -14,8 +14,7 @@
       when: ansible_distribution == 'MacOSX'
 
     - name: Run Ubuntu config
-      include_role:
-        name: '{{ apt_package }}'
+      include_tasks: 'tasks/{{ apt_package }}.yml'
       loop:
         - apt
       loop_control:
