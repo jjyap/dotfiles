@@ -4,6 +4,6 @@ block_dotfiles:
   - .bash_profile
   - .bashrc
   - .tmux.conf
-
-symlink_dotfiles:
   - .gitconfig
+
+symlink_dotfiles: []
