@@ -1,12 +1,30 @@
 ---
 - hosts: localhost
-  # gather_facts: false
-  roles:
-    # Ansible has 2 special tags, "always" and "never"
-    # Ansible will ignore all roles with the tag "never" unless explicitly included
-    # https://docs.ansible.com/ansible/latest/user_guide/playbooks_tags.html
-    - {role: dotfiles, tags: [always, dotfiles]}
-    - {role: packages, tags: [always], become: yes}
-    - {role: vim, tags: [always]}
-    # - {role: ssh, tags: [ssh]}
-    # - {role: bins, tags: [never, bins]}
+  gather_facts: True
+  tasks:
+    - name: Set OS distribution dependant variables
+      include_vars: "{{ ansible_facts['distribution'] | lower }}.yml"
+
+    - name: Run MacOS config
+      include_tasks: 'tasks/{{ brew_package }}.yml'
+      loop:
+        - homebrew
+      loop_control:
+        loop_var: brew_package
+      when: ansible_distribution == 'MacOSX'
+
+    - name: Run Ubuntu config
+      include_role:
+        name: '{{ apt_package }}'
+      loop:
+        - apt
+      loop_control:
+        loop_var: apt_package
+      when: ansible_distribution == 'Ubuntu'
+
+    - name: Run common config
+      include_role:
+        name: '{{ item }}'
+      loop:
+        - dotfiles
+        - vim

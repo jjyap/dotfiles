@@ -2,7 +2,6 @@
 apt_repositories:
   - ppa:virtuslab/git-machete
   - ppa:neovim-ppa/stable
-
 apt_packages:
   - software-properties-common
   - build-essential

@@ -1,9 +1,9 @@
 ---
+create_backups: false
 block_dotfiles:
   - .alias
   - .bash_profile
   - .bashrc
   - .tmux.conf
   - .gitconfig
-
 symlink_dotfiles: []

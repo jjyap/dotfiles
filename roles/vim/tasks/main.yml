@@ -13,7 +13,6 @@
       state: directory
       recurse: yes
 
-
 - name: Symlink .vim/autoload directory
   file:
     src: "{{ playbook_dir }}/roles/vim/files/.vim/autoload"
@@ -33,6 +32,13 @@
       path: ~/.config/nvim
       state: directory
       recurse: yes
+
+- name: Symlink neovim/colors directory
+  file:
+    src: "{{ playbook_dir }}/roles/vim/files/.vim/colors"
+    dest: "~/.config/nvim/colors"
+    state: link
+    force: yes
 
 - name: Symlink .vimrc file to neovim init.vim
   file:

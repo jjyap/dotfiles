@@ -3,19 +3,21 @@
   apt_repository:
     repo: "{{ item }}"
   with_items: "{{ apt_repositories }}"
+  when: ansible_distribution == 'MacOSX'
 
 - name: Apt update
   apt:
-    update_cache: yes
+    update_cache: true
 
 - name: Install apt packages
   apt:
     name: "{{ apt_packages }}"
     state: present
-    update_cache: yes
+    update_cache: true
 
+# TODO: Pull this out into a git-machete role
 - name: Install git-machete auto completion
   get_url:
     url: https://raw.githubusercontent.com/VirtusLab/git-machete/master/completion/git-machete.completion.bash
     dest: /etc/bash_completion.d/git-machete 
-  become: yes
+  become: true

@@ -1,0 +1,9 @@
+---
+brew_taps:
+  - VirtusLab/git-machete
+brew_packages:
+  - direnv
+  - git
+  - git-machete
+  - jq
+  - neovim
