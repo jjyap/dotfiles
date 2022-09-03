@@ -52,5 +52,5 @@
       dest: ~/.vim/autoload/plug.vim
       force: yes
 
-- name: Install Plugins
-  shell: TERM=dumb nvim +PlugInstall +qall
+# - name: Install Plugins
+#   shell: TERM=dumb nvim +PlugInstall +qall
