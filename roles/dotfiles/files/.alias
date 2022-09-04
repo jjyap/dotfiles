@@ -27,3 +27,11 @@ alias gp='git push'
 
 # Bash
 alias h='history | grep'
+
+
+# Bazel
+alias b='bazel'
+
+alias br='bazel run'
+
+alias bb='bazel build'
